@@ -1,4 +1,4 @@
-package ktmt.k52.viettts;
+package com.honglv.viettts;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -7,9 +7,9 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
-import ktmt.k52.viettts.FileChooser.FileChooser;
+import com.honglv.viettts.FileChooser.FileChooser;
 
-import org.apache.http.ParseException;
+import java.text.ParseException;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -28,14 +28,14 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class VietnameseTTSMini2440Activity extends Activity {
+public class VietnameseTTSActivity extends Activity {
 	/** Called when the activity is first created. */
 
 	private EditText inputText;
 	private Button btSubmit, btChoose, btPlay, btStop, btExit;
 	private ListView listText;
 	private CheckBox cbText;
-	private TextView status;
+	//private TextView status;
 
 	private final int REQUEST_CODE = 0;
 	private StreamMedia audioStreamer;
@@ -60,11 +60,11 @@ public class VietnameseTTSMini2440Activity extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				try {
-					String response = HttpHelp.postPageIsolar(temp);
-					status.setText("Requesting to isolar..");
+					//String response = HttpHelp.postPageIsolar(temp);
+					//status.setText("Requesting to isolar..");
 
-					String audioUrl = HttpHelp.getIsolarAudioUrl(response);
-					status.setText("Getting audio url..");
+					//String audioUrl = HttpHelp.getIsolarAudioUrl(response);
+					//status.setText("Getting audio url..");
 
 					String mediaName = mediaName(audioUrl);
 					audioStreamer.startStreaming(audioUrl, mediaName);
@@ -87,7 +87,7 @@ public class VietnameseTTSMini2440Activity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				new AlertDialog.Builder(VietnameseTTSMini2440Activity.this)
+				new AlertDialog.Builder(VietnameseTTSActivity.this)
 						.setIcon(android.R.drawable.ic_dialog_alert)
 						.setTitle("Xác nhận")
 						.setMessage("Bạn thật sự muốn thoát?")
@@ -98,7 +98,7 @@ public class VietnameseTTSMini2440Activity extends Activity {
 									public void onClick(DialogInterface dialog,
 											int which) {
 										// Stop the activity
-										VietnameseTTSMini2440Activity.this
+										VietnameseTTSActivity.this
 												.finish();
 									}
 
@@ -114,7 +114,7 @@ public class VietnameseTTSMini2440Activity extends Activity {
 			public void onClick(View v) {
 				// tạo intent đề chạy activity file chooser
 				Intent fileChoose = new Intent(
-						VietnameseTTSMini2440Activity.this, FileChooser.class);
+						VietnameseTTSActivity.this, FileChooser.class);
 				// Set the request code to any code you like, you can identify
 				// the callback via this code
 				startActivityForResult(fileChoose, REQUEST_CODE);
@@ -137,7 +137,7 @@ public class VietnameseTTSMini2440Activity extends Activity {
 
 		listText = (ListView) findViewById(R.id.list);
 		cbText = (CheckBox) findViewById(R.id.Get_text);
-		status = (TextView) findViewById(R.id.text_kb_streamed);
+		//status = (TextView) findViewById(R.id.text_kb_streamed);
 
 		audioStreamer = new StreamMedia(this, status, btPlay, btSubmit);
 

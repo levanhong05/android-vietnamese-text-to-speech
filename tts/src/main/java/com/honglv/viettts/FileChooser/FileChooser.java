@@ -1,12 +1,12 @@
-package ktmt.k52.viettts.FileChooser;
+package com.honglv.viettts.FileChooser;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import ktmt.k52.viettts.R;
-import ktmt.k52.viettts.VietnameseTTSMini2440Activity;
+import com.honglv.viettts.R;
+import com.honglv.viettts.VietnameseTTSActivity;
 
 import android.app.Activity;
 import android.app.ListActivity;

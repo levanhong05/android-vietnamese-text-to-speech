@@ -1,7 +1,4 @@
-package ktmt.k52.viettts.FileChooser;
-
-
-
+package com.honglv.viettts.FileChooser;
 
 public class Option implements Comparable<Option>{
 	private String name;
